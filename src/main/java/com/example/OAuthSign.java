@@ -16,7 +16,7 @@ import oauth.signpost.http.HttpRequest;
 import oauth.signpost.signature.HmacSha256MessageSigner;
 
 public class OAuthSign {
-	public static String getAuthHeader() throws IOException {           
+	public static String getAuthHeader(String uri) throws IOException {           
 	    String consumer_key = "594f75ba092ebe059027f6af0a6eb3b78cdb94419282f35c1de6b91803d708aa";
 	    String consumer_secret = "eba80a6a6f7374c5ba30220ca2fc7d4bf67db5120b8b327effadfe21c558de03";
 	    String access_token = "1baa836e6e43d0c06aea6eb30a7233ae1974969a367092574b95f5b2a715bc98";
@@ -26,7 +26,6 @@ public class OAuthSign {
 	    consumer.setMessageSigner(new HmacSha256MessageSigner());
 	    consumer.setTokenWithSecret(access_token, access_secret);
 	    
-	    String uri = "https://5298967-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=589&deploy=1";
 	    HttpPost httppost= new HttpPost(uri);
 	    
 	    try {

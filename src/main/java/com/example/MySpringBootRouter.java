@@ -59,7 +59,7 @@ public class MySpringBootRouter extends RouteBuilder {
         	.process(new Processor() {
                 @Override
                 public void process(Exchange exchange) throws Exception {
-                	String authHeader = OAuthSign.getAuthHeader();
+                	String authHeader = OAuthSign.getAuthHeader(erpUri);
                     exchange.getMessage().setHeader("Authorization", authHeader);
                 }
         	})
